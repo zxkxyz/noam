@@ -1,6 +1,6 @@
 {
   "name": "noam",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Note taking app build with Electron.",
   "homepage": "https://github.com/zakarhino/noam",
   "main": "index.js",
