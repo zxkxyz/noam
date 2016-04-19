@@ -1,6 +1,6 @@
 {
   "name": "noam",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Note taking app build with Electron.",
   "main": "index.js",
   "scripts": {
