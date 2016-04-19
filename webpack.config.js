@@ -2,14 +2,15 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
-  devtool: "#eval",
-  entry: './client/index.jsx',
+  devtool: "eval",
+  entry: [
+    'webpack-hot-middleware/client?path=http://localhost:8080/__webpack_hmr',
+    './client/index.jsx'
+    ],
   output: {
-    path: path.join(__dirname, 'public/built'),
-    filename: "bundle.js"
-  },
-  devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'public'),
+    filename: "bundle.js",
+    publicPath: 'http://localhost:8080/public'
   },
   module: {
     preloaders: [
@@ -22,12 +23,13 @@ module.exports = {
     loaders: [
       { 
         test: /\.(js|jsx)?$/,
-        loaders: ['babel'],
+        loaders: ['babel-loader'],
         include: path.join(__dirname, 'client')
       }
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
   ]
 };

@@ -6,8 +6,9 @@
   "main": "index.js",
   "scripts": {
     "start": "electron index.js",
+    "start-hot": "cross-env HOT=1 NODE_ENV=development electron index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devServer": "webpack-dev-server --inline --devtool --colors --progress"
+    "devServer": "node -r babel-register devServer.js"
   },
   "author": {
     "name": "Zak Golding",
@@ -32,6 +33,7 @@
     "webpack": "^1.13.0"
   },
   "devDependencies": {
+    "cross-env": "^1.0.7",
     "eslint": "^2.8.0"
   }
 }
