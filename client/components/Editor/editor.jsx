@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-class Editor extends Component {
+export default class Editor extends Component {
   constructor(props) {
     super(props);
     
@@ -20,4 +20,4 @@ class Editor extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Editor);
+// export default connect(mapStateToProps, mapDispatchToProps)(Editor);
