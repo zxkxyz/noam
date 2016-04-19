@@ -13,8 +13,8 @@ export default class Editor extends Component {
     return (
       <div>
         <h3>Editor:</h3>
-        <input type="text">
-        </input>
+        <textarea type="text">
+        </textarea>
       </div>
     )
   }
