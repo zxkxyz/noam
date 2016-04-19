@@ -2,12 +2,17 @@
   "name": "noam",
   "version": "0.0.2",
   "description": "Note taking app build with Electron.",
+  "homepage": "https://github.com/zakarhino/noam",
   "main": "index.js",
   "scripts": {
     "start": "webpack --progress | electron index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": {
+    "name": "Zak Golding",
+    "email": "zak@0x7cf.com",
+    "url": "https://github.com/zakarhino"
+  },
   "license": "WTFPL",
   "dependencies": {
     "babel-core": "^6.7.6",
