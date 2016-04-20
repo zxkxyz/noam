@@ -8,8 +8,8 @@ export default function notes(state = initialState, action) {
   switch(action.type) {
     case DEFAULT_ACTION:
       return {
-        text: "Updated state!",
-        ...state
+        ...state,
+        text: "Updated state!"
       }
     default:
       return state;

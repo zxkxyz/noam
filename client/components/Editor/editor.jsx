@@ -12,9 +12,16 @@ export default class Editor extends Component {
   render() {
     return (
       <div>
-        <h3>Editor:</h3>
-        <textarea type="text">
-        </textarea>
+        <input
+          type="text"
+          onChange={this.props.updateTitle}
+          placeholder="Untitled" >
+        </input>
+        <br />
+        <input 
+          type="text"
+          onChange={this.props.updateBody} >
+        </input>
       </div>
     )
   }
