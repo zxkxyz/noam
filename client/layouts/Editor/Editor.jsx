@@ -25,6 +25,4 @@ export default class Editor extends Component {
       </div>
     )
   }
-}
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Editor);
+};

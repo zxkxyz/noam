@@ -17,6 +17,7 @@
   },
   "license": "WTFPL",
   "dependencies": {
+    "axios": "^0.9.1",
     "babel-core": "^6.7.6",
     "babel-eslint": "^6.0.2",
     "babel-loader": "^6.2.4",
@@ -25,7 +26,6 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0",
-    "eslint-plugin-babel": "^3.2.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",
@@ -34,6 +34,5 @@
   },
   "devDependencies": {
     "cross-env": "^1.0.7",
-    "eslint": "^2.8.0"
   }
 }

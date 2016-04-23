@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Editor from '../../components/Editor/Editor.jsx';
+import Editor from '../../layouts/Editor/Editor.jsx';
+import ToolBar from '../../layouts/ToolBar/ToolBar.jsx';
 import { updateCurrentNoteTitle, updateCurrentNoteBody } from '../../actions/current';
 
 class Compose extends Component {
@@ -29,12 +30,14 @@ class Compose extends Component {
   render() {
     return (
       <div>
+        <ToolBar />
         <Editor 
           updateTitle={ ::this.handleTitle } 
           updateBody={ ::this.handleBody } />
       </div>
     );
   }
+  
 }
 
 function mapStateToProps({ current }) {
