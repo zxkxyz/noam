@@ -1,49 +1,49 @@
-import React, { Component, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React, {Component, PropTypes} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
 import Editor from '../../layouts/Editor/Editor.jsx';
 import ToolBar from '../../layouts/ToolBar/ToolBar.jsx';
-import { updateCurrentNoteTitle, updateCurrentNoteBody } from '../../actions/current';
+import {updateCurrentNoteTitle, updateCurrentNoteBody} from '../../actions/current';
 
 class Compose extends Component {
-  
+
   static propTypes = {
     title: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired
   }
-  
+
   constructor(props) {
     super(props);
   }
-  
-  handleTitle({ target }) {
+
+  handleTitle({target}) {
     this.props.updateCurrentNoteTitle(target.value);
     console.log("Title:", target.value);
   }
-  
-  handleBody({ target }) {
+
+  handleBody({target}) {
     this.props.updateCurrentNoteBody(target.value);
     console.log("Body:", target.value);
   }
-  
+
   render() {
     return (
       <div>
         <ToolBar />
-        <Editor 
-          updateTitle={ ::this.handleTitle } 
-          updateBody={ ::this.handleBody } />
+        <Editor
+          updateTitle={ :: this.handleTitle }
+          updateBody={ :: this.handleBody } />
       </div>
     );
   }
-  
+
 }
 
-function mapStateToProps({ current }) {
-  return { 
-    title: current.title, 
-    body: current.body 
+function mapStateToProps({current}) {
+  return {
+    title: current.title,
+    body: current.body
   };
 }
 

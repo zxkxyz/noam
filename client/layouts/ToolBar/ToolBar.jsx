@@ -1,13 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React, {Component, PropTypes} from 'react';
 
 class ToolBar extends Component {
-  
-  constructor() {
-    
+
+  	constructor() {
+
   }
-  
-  render() {
-    
+
+  	render() {
+
   }
-  
+
 }

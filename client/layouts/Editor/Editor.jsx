@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 export default class Editor extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {};
+  	constructor(props) {
+    	super(props);
+
+    	this.state = {};
   }
-  
-  render() {
-    return (
+
+  	render() {
+    	return (
       <div>
         <input
           type="text"
@@ -18,11 +18,11 @@ export default class Editor extends Component {
           placeholder="Untitled" >
         </input>
         <br />
-        <input 
+        <input
           type="text"
           onChange={this.props.updateBody} >
         </input>
       </div>
-    )
+    );
   }
-};
+}
