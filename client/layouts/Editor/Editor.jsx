@@ -1,26 +1,26 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 export default class Editor extends Component {
-  	constructor(props) {
-    	super(props);
+  constructor(props) {
+    super(props);
 
-    	this.state = {};
+    this.state = {};
   }
 
-  	render() {
-    	return (
+  render() {
+    return (
       <div>
         <input
           type="text"
           onChange={this.props.updateTitle}
-          placeholder="Untitled" >
+          placeholder="Untitled">
         </input>
         <br />
         <input
           type="text"
-          onChange={this.props.updateBody} >
+          onChange={this.props.updateBody}>
         </input>
       </div>
     );

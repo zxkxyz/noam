@@ -34,3 +34,6 @@ node_modules
 
 # Distribution bundle
 public/bundle.js
+
+.idea
+.vscode

@@ -6,8 +6,6 @@ const initialState = {
 };
 
 export default function current(state = initialState, action) {
-  	console.log("State:", state);
-  	console.log("Action:", action);
   	switch (action.type) {
     	case UPDATE_CURRENT_TITLE:
       		return {

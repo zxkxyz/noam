@@ -1,13 +1,19 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class ToolBar extends Component {
+  constructor(props) {
+    super(props);
 
-  	constructor() {
-
+    this.state = {};
   }
 
-  	render() {
-
+  render() {
+    return (
+      <div>
+        <button>A_TEAM</button>
+      </div>
+    )
   }
-
 }
+
+export default ToolBar;
