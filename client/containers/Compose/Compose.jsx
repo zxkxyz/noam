@@ -29,27 +29,22 @@ class Compose extends Component {
   render() {
     return (
       <div>
-        <ToolBar />
         <Editor
           updateTitle={ :: this.handleTitle }
           updateBody={ :: this.handleBody }/>
+        <ToolBar />
       </div>
     );
   }
 }
 
-function mapStateToProps({ current }) {
-  return {
+export default connect(
+  ({ current }) => ({
     title: current.title,
     body: current.body
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
+  }),
+  (dispatch) => bindActionCreators({
     updateCurrentNoteTitle,
     updateCurrentNoteBody
-  }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Compose);
+  }, dispatch)
+)(Compose);

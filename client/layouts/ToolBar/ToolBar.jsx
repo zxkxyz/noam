@@ -1,19 +1,31 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { submitNote } from "../../actions/notes";
 
 class ToolBar extends Component {
   constructor(props) {
     super(props);
+  }
 
-    this.state = {};
+  postNoteToDatabase() {
+    this.props.submitNote(this.props.note);
   }
 
   render() {
     return (
       <div>
-        <button>A_TEAM</button>
+        <button onClick={ :: this.postNoteToDatabase }>Submit</button>
       </div>
     )
   }
 }
 
-export default ToolBar;
+export default connect(
+  ({ current }) => ({
+    note: current
+  }),
+  (dispatch) => bindActionCreators({
+    submitNote
+  }, dispatch)
+)(ToolBar);

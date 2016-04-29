@@ -18,10 +18,10 @@ export default class Editor extends Component {
           placeholder="Untitled">
         </input>
         <br />
-        <input
+        <textarea
           type="text"
           onChange={this.props.updateBody}>
-        </input>
+        </textarea>
       </div>
     );
   }
