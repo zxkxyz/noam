@@ -1,10 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-
-import Editor from '../../layouts/Editor/Editor.jsx';
-import ToolBar from '../../layouts/ToolBar/ToolBar.jsx';
-import { updateCurrentNoteTitle, updateCurrentNoteBody } from '../../actions/current';
+import React, { Component, PropTypes } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import Editor from "../../layouts/Editor/Editor.jsx";
+import ToolBar from "../../layouts/ToolBar/ToolBar.jsx";
+import { updateCurrentNoteTitle, updateCurrentNoteBody } from "../../actions/current";
 
 class Compose extends Component {
   static propTypes = {
