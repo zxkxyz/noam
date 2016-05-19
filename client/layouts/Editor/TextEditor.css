@@ -1,0 +1,5 @@
+.textEditor {
+  border: 1px solid black;
+  cursor: 'text';
+  height: 100%;
+}

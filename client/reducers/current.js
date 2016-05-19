@@ -1,8 +1,9 @@
 import { UPDATE_CURRENT_TITLE, UPDATE_CURRENT_BODY } from '../constants/ActionTypes';
+import { EditorState } from 'draft-js';
 
 const initialState = {
   title: 'Untitled',
-  body: ''
+  body: EditorState.createEmpty()
 };
 
 export default function current(state = initialState, action) {
@@ -10,18 +11,12 @@ export default function current(state = initialState, action) {
     case UPDATE_CURRENT_TITLE:
       return {
         ...state,
-        current: {
-          ...state.current,
-          title: action.title,
-        }
+        title: action.title,
       };
     case UPDATE_CURRENT_BODY:
       return {
         ...state,
-        current: {
-          ...state.current,
-          body: action.body
-        }
+        body: action.body
       };
     default:
       return state;

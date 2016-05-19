@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from "react";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { submitNote } from "../../actions/notes";
 
@@ -25,7 +24,7 @@ export default connect(
   ({ current }) => ({
     note: current
   }),
-  (dispatch) => bindActionCreators({
+  {
     submitNote
-  }, dispatch)
+  }
 )(ToolBar);

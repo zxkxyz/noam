@@ -1,14 +1,16 @@
 import React, { Component, PropTypes } from "react";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import Editor from "../../layouts/Editor/Editor.jsx";
+import TextEditor from "../../layouts/Editor/TextEditor.jsx";
 import ToolBar from "../../layouts/ToolBar/ToolBar.jsx";
 import { updateCurrentNoteTitle, updateCurrentNoteBody } from "../../actions/current";
+import { EditorState } from 'draft-js';
+
+import styles from './Compose.css';
 
 class Compose extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired
+    body: PropTypes.instanceOf(EditorState)
   };
 
   constructor(props) {
@@ -20,15 +22,15 @@ class Compose extends Component {
     console.log("Title:", target.value);
   }
 
-  handleBody({ target }) {
-    this.props.updateCurrentNoteBody(target.value);
-    console.log("Body:", target.value);
+  handleBody(editorState) {
+    this.props.updateCurrentNoteBody(editorState);
+    console.log("Body State:", editorState);
   }
 
   render() {
     return (
-      <div>
-        <Editor
+      <div className={styles.Compose}>
+        <TextEditor
           updateTitle={ :: this.handleTitle }
           updateBody={ :: this.handleBody }/>
         <ToolBar />
@@ -42,8 +44,8 @@ export default connect(
     title: current.title,
     body: current.body
   }),
-  (dispatch) => bindActionCreators({
+  {
     updateCurrentNoteTitle,
     updateCurrentNoteBody
-  }, dispatch)
+  }
 )(Compose);
