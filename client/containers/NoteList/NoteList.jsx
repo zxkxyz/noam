@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
 
 class NoteList extends Component {
   constructor(props) {
     super(props);
+  }
+
+  displayNotesList() {
+
   }
 
   render() {

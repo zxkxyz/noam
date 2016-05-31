@@ -12,7 +12,7 @@ export default class App extends Component {
       <div>
         <SplitPane
           split="horizontal"
-          defaultSize={200} >
+          defaultSize={280} >
           <NoteList />
           <Compose />
         </SplitPane>

@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { submitNote } from "../../actions/notes";
 
+import styles from './ToolBar.css';
+
 class ToolBar extends Component {
   constructor(props) {
     super(props);
@@ -11,10 +13,17 @@ class ToolBar extends Component {
     this.props.submitNote(this.props.note);
   }
 
+  doSomeFsThings() {
+    fs.writeFile('Users/zgolding/Downloads/something.txt', function(err) {
+      console.log("error with fs:", err);
+    });
+  }
+
   render() {
     return (
-      <div>
-        <button onClick={ :: this.postNoteToDatabase }>Submit</button>
+      <div className={styles.ToolBar}>
+        <button onClick={ ::this.postNoteToDatabase }>Submit</button>
+        <button onClick={ ::this.doSomeFsThings }></button>
       </div>
     )
   }
