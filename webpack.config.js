@@ -5,7 +5,7 @@ module.exports = {
   devtool: "eval",
   entry: [
     'webpack-hot-middleware/client?path=http://localhost:8080/__webpack_hmr',
-    './client/index.jsx'
+    path.join(__dirname, 'client/index.tsx')
   ],
   output: {
     path: path.join(__dirname, 'public'),
@@ -22,8 +22,13 @@ module.exports = {
     ],
     loaders: [
       {
-        test: /\.(js|jsx)?$/,
-        loaders: ['babel-loader'],
+        test: /\.tsx?$/,
+        loaders: ['ts-loader'],
+        include: path.join(__dirname, 'client')
+      },
+      {
+        test: /\.js$/,
+        loaders: ['source-map-loader'],
         include: path.join(__dirname, 'client')
       },
       {
@@ -33,6 +38,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 };

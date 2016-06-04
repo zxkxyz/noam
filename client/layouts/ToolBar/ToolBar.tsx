@@ -1,12 +1,19 @@
-import React, { Component, PropTypes } from "react";
+import { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { submitNote } from "../../actions/notes";
 
-import styles from './ToolBar.css';
+const styles = require('./ToolBar.css');
 
-class ToolBar extends Component {
+export interface ToolBarProps {
+  submitNote: () => 
+}
+
+class ToolBar extends Component<{}, {}> {
   constructor(props) {
     super(props);
+
+    this.postNoteToDatabase = this.postNoteToDatabase.bind(this);
+    this.doSomeFsThings = this.doSomeFsThings.bind(this);
   }
 
   postNoteToDatabase() {
@@ -22,8 +29,8 @@ class ToolBar extends Component {
   render() {
     return (
       <div className={styles.ToolBar}>
-        <button onClick={ ::this.postNoteToDatabase }>Submit</button>
-        <button onClick={ ::this.doSomeFsThings }></button>
+        <button onClick={ this.postNoteToDatabase }>Submit</button>
+        <button onClick={ this.doSomeFsThings }></button>
       </div>
     )
   }

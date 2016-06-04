@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import SplitPane from 'react-split-pane';
 
-import Compose from '../Compose/Compose.jsx';
-import NoteList from '../NoteList/NoteList.jsx';
+import Compose from '../Compose/Compose';
+import NoteList from '../NoteList/NoteList';
 
 import styles from './App.css';
 

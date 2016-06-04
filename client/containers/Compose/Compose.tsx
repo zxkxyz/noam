@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
-import TextEditor from "../../layouts/Editor/TextEditor.jsx";
-import ToolBar from "../../layouts/ToolBar/ToolBar.jsx";
+import TextEditor from "../../layouts/Editor/TextEditor";
+import ToolBar from "../../layouts/ToolBar/ToolBar";
 import { updateCurrentNoteTitle, updateCurrentNoteBody } from "../../actions/current";
 import { EditorState } from 'draft-js';
 

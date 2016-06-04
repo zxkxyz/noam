@@ -2,9 +2,9 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 import promise from 'redux-promise';
 import rootReducer from '../reducers';
-import DevTools from '../containers/DevTools.jsx';
+import DevTools from '../containers/DevTools';
 
-export default function configureStore(initialState) {
+export default function configureStore(initialState: any) {
 
   // Create redux logger
   const logger = createLogger({
