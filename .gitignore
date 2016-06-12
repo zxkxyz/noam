@@ -34,3 +34,8 @@ node_modules
 
 # Distribution bundle
 public/bundle.js
+
+.idea
+.vscode
+.DS_Store
+typings

@@ -1,1 +1,0 @@
-export const DEFAULT_ACTION = Symbol("DEFAULT_ACTION");

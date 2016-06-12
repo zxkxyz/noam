@@ -1,0 +1,3 @@
+export const UPDATE_CURRENT_TITLE = Symbol("UPDATE_CURRENT_TITLE");
+export const UPDATE_CURRENT_BODY = Symbol("UPDATE_CURRENT_BODY");
+export const SUBMIT_NOTE = Symbol("SUBMIT_NOTE");
