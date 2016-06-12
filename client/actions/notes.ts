@@ -1,7 +1,7 @@
-import axios from 'axios';
+import * as axios from 'axios';
 
-import { SUBMIT_NOTE } from '../constants/ActionTypes';
-import { SERVER_URL } from '../constants/ServerInfo';
+import { SUBMIT_NOTE } from '../constants/ActionTypes.ts';
+import { SERVER_URL } from '../constants/ServerInfo.ts';
 
 /**
  * Submits note to the database

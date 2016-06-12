@@ -1,11 +1,8 @@
 import { combineReducers } from 'redux';
-import notes from './notes';
-import current from './current';
+import notes from './notes.ts';
+import current from './current.ts';
 
-const rootReducer =
-  combineReducers({
-    notes,
-    current
-  });
-
-export default rootReducer;
+export default combineReducers({
+  notes,
+  current
+});

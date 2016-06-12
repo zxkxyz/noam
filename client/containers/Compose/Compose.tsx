@@ -1,20 +1,25 @@
-import React, { Component, PropTypes } from "react";
+import * as React from "react";
 import { connect } from "react-redux";
-import TextEditor from "../../layouts/Editor/TextEditor";
-import ToolBar from "../../layouts/ToolBar/ToolBar";
-import { updateCurrentNoteTitle, updateCurrentNoteBody } from "../../actions/current";
+import TextEditor from "../../layouts/Editor/TextEditor.tsx";
+import ToolBar from "../../layouts/ToolBar/ToolBar.tsx";
+import { updateCurrentNoteTitle, updateCurrentNoteBody } from "../../actions/current.ts";
 import { EditorState } from 'draft-js';
 
-import styles from './Compose.css';
+const styles = require('./Compose.css');
 
-class Compose extends Component {
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    body: PropTypes.instanceOf(EditorState)
-  };
+export interface ComposeProps {
+  title: string,
+  body: EditorState,
+  updateCurrentNoteTitle: (any) => any,
+  updateCurrentNoteBody: (any) => any
+}
 
+class Compose extends React.Component<ComposeProps, {}> {
   constructor(props) {
     super(props);
+
+    this.handleTitle = this.handleTitle.bind(this);
+    this.handleBody = this.handleBody.bind(this);
   }
 
   handleTitle({ target }) {
@@ -31,8 +36,8 @@ class Compose extends Component {
     return (
       <div className={styles.Compose}>
         <TextEditor
-          updateTitle={ :: this.handleTitle }
-          updateBody={ :: this.handleBody }/>
+          updateTitle={ this.handleTitle }
+          updateBody={ this.handleBody }/>
         <ToolBar />
       </div>
     );

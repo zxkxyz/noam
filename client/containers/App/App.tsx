@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import SplitPane from 'react-split-pane';
+import * as React from 'react';
+import * as SplitPane from 'react-split-pane';
 
-import Compose from '../Compose/Compose';
-import NoteList from '../NoteList/NoteList';
+import Compose from '../Compose/Compose.tsx';
+import NoteList from '../NoteList/NoteList.tsx';
 
-import styles from './App.css';
+const styles = require('./App.css');
 
-export default class App extends Component {
+export default class App extends React.Component<{}, {}> {
   render() {
     return (
       <div>

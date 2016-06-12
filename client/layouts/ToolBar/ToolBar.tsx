@@ -1,14 +1,18 @@
-import { Component, PropTypes } from "react";
+import * as React from "react";
 import { connect } from "react-redux";
-import { submitNote } from "../../actions/notes";
+import { submitNote } from "../../actions/notes.ts";
+
+// const Remote = require('remote');
+// const fs = Remote.require('fs');
 
 const styles = require('./ToolBar.css');
 
 export interface ToolBarProps {
-  submitNote: () => 
-}
+  submitNote: (any) => any,
+  note: any
+};
 
-class ToolBar extends Component<{}, {}> {
+class ToolBar extends React.Component<ToolBarProps, {}> {
   constructor(props) {
     super(props);
 
@@ -21,9 +25,9 @@ class ToolBar extends Component<{}, {}> {
   }
 
   doSomeFsThings() {
-    fs.writeFile('Users/zgolding/Downloads/something.txt', function(err) {
-      console.log("error with fs:", err);
-    });
+    // fs.writeFile('Users/zgolding/Downloads/something.txt', function(err) {
+    //   console.log("error with fs:", err);
+    // });
   }
 
   render() {

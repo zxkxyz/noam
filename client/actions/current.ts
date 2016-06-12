@@ -1,4 +1,4 @@
-import { UPDATE_CURRENT_TITLE, UPDATE_CURRENT_BODY } from '../constants/ActionTypes';
+import { UPDATE_CURRENT_TITLE, UPDATE_CURRENT_BODY } from '../constants/ActionTypes.ts';
 
 /**
  * Redux action to update the current note's title.

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
-class NoteList extends Component {
+class NoteList extends React.Component<{}, {}> {
   constructor(props) {
     super(props);
   }

@@ -1,10 +1,20 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Editor, EditorState, RichUtils } from 'draft-js';
-import AutosizeInput from 'react-input-autosize';
+const AutosizeInput = require('react-input-autosize');
 
-import styles from './TextEditor.css';
+const styles = require('./TextEditor.css');
 
-export default class TextEditor extends Component {
+export interface TextEditorProps {
+  updateBody: (any) => any,
+  updateTitle: (any) => any,
+};
+
+export interface TextEditorState {
+  editorState: EditorState,
+  title: string
+};
+
+export default class TextEditor extends React.Component<TextEditorProps, TextEditorState> {
   constructor(props) {
     super(props);
 
@@ -12,15 +22,19 @@ export default class TextEditor extends Component {
       editorState: EditorState.createEmpty(),
       title: ''
     };
+
+    this.onChangeEditor = this.onChangeEditor.bind(this);
+    this.onChangeTitle = this.onChangeTitle.bind(this);
+    this.handleKeyCommand = this.handleKeyCommand.bind(this);
   }
 
   onChangeEditor(editorState) {
-    this.setState({ editorState });
+    this.setState({ editorState } as TextEditorState);
     this.props.updateBody(editorState)
   }
 
   onChangeTitle(titleEvent) {
-    this.setState({ title: titleEvent.target.value });
+    this.setState({ title: titleEvent.target.value } as TextEditorState);
     this.props.updateTitle(titleEvent);
   }
 
@@ -42,15 +56,15 @@ export default class TextEditor extends Component {
             className={styles.inputDiv}
             type="text"
             value={title}
-            onChange={::this.onChangeTitle}
+            onChange={this.onChangeTitle}
             placeholder="My Note" />
         </div>
         <br />
         <div className={styles.textEditor}>
           <Editor
             editorState={editorState}
-            handleKeyCommand={::this.handleKeyCommand}
-            onChange={::this.onChangeEditor}>
+            handleKeyCommand={this.handleKeyCommand}
+            onChange={this.onChangeEditor}>
           </Editor>
         </div>
       </div>

@@ -1,10 +1,10 @@
 import { createStore, compose, applyMiddleware } from 'redux';
-import createLogger from 'redux-logger';
-import promise from 'redux-promise';
-import rootReducer from '../reducers';
-import DevTools from '../containers/DevTools';
+import createLogger = require('redux-logger');
+const promise = require('redux-promise');
+import rootReducer from '../reducers/index.ts';
+import DevTools from '../containers/DevTools.tsx';
 
-export default function configureStore(initialState: any) {
+export default function configureStore(initialState: any): any{
 
   // Create redux logger
   const logger = createLogger({
@@ -27,9 +27,9 @@ export default function configureStore(initialState: any) {
   );
 
   // Logic for HMR
-  if (module.hot) {
-    module.hot.accept('../reducers', () => {
-      const nextReducer = require('../reducers').default;
+  if ((module as any).hot) {
+    (module as any).hot.accept('../reducers/index.ts', () => {
+      const nextReducer = require('../reducers/index.ts').default;
       store.replaceReducer(nextReducer);
     });
   }

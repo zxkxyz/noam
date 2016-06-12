@@ -1,18 +1,15 @@
-import { SUBMIT_NOTE } from '../constants/ActionTypes';
+import { SUBMIT_NOTE } from '../constants/ActionTypes.ts';
 
 const initialState = {
   text: "Default state"
 };
 
-export default function notes(state = initialState, action) {
+export default function notes(state: any = initialState, action: any): any {
   switch (action.type) {
     case SUBMIT_NOTE:
-      return {
-        ...state,
-        newest: {
-          ...action.payload.data.note
-        }
-      };
+      return Object.assign({}, state, {
+        newest: Object.assign({}, action.payload.data.note)
+      });
     default:
       return state;
   }
