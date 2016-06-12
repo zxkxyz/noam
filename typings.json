@@ -4,11 +4,17 @@
   "globalDependencies": {
     "axios": "registry:dt/axios#0.9.1+20160317120654",
     "core-js": "registry:dt/core-js#0.0.0+20160602141332",
+    "draft-js": "registry:dt/draft-js#0.2.2+20160316171810",
     "node": "registry:dt/node#6.0.0+20160602155235",
     "react": "registry:dt/react#0.14.0+20160602151522",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
     "react-redux": "registry:dt/react-redux#4.4.0+20160501125835",
+    "react-split-pane": "registry:dt/react-split-pane#0.1.38+20160501160952",
     "redux": "registry:dt/redux#3.3.1+20160326112656",
-    "redux-logger": "registry:dt/redux-logger#2.6.0+20160316155526"
+    "redux-devtools": "registry:dt/redux-devtools#3.0.0+20151215130854",
+    "redux-devtools-dock-monitor": "registry:dt/redux-devtools-dock-monitor#1.0.1+20151216103641",
+    "redux-devtools-log-monitor": "registry:dt/redux-devtools-log-monitor#1.0.1+20151216103641",
+    "redux-logger": "registry:dt/redux-logger#2.6.0+20160316155526",
+    "redux-promise": "registry:dt/redux-promise#0.5.3+20160322194740"
   }
 }
