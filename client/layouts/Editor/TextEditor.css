@@ -1,9 +1,11 @@
 .inputWrapper {
+  width: 100%;
   margin: auto;
 }
 
 .inputDiv {
   margin: auto;
+
 }
 
 .editorWrapper {

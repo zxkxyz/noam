@@ -12,10 +12,15 @@ let mainWindow;
 
 function createWindow() {
   // Create the browser window.
+      // BrowserWindow.addDevToolsExtension('~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.14.11_1');
+
   mainWindow = new BrowserWindow({ width: 900, height: 1000 });
 
   // and load the index.html of the app.
   	mainWindow.loadURL('file://' + __dirname + '/public/index.html');
+
+    // Load react dev tools
+    // BrowserWindow.addDevToolsExtension('~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.14.11_1');
 
   // Open the DevTools.
   	mainWindow.webContents.openDevTools();

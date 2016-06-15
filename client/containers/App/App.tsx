@@ -3,6 +3,7 @@ import * as SplitPane from 'react-split-pane';
 
 import Compose from '../Compose/Compose.tsx';
 import NoteList from '../NoteList/NoteList.tsx';
+import DevTools from '../DevTools.tsx';
 
 const styles = require('./App.css');
 
@@ -16,6 +17,7 @@ export default class App extends React.Component<{}, {}> {
           <NoteList />
           <Compose />
         </SplitPane>
+        <DevTools />
       </div>
     );
   }

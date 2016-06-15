@@ -1,14 +1,11 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { submitNote } from "../../actions/notes.ts";
-
-// const Remote = require('remote');
-// const fs = Remote.require('fs');
+import { saveNote } from "../../filesystem/saveNote.ts";
 
 const styles = require('./ToolBar.css');
 
 export interface ToolBarProps {
-  submitNote: (any) => any,
+  saveNote: (any) => any,
   note: any
 };
 
@@ -16,25 +13,17 @@ class ToolBar extends React.Component<ToolBarProps, {}> {
   constructor(props) {
     super(props);
 
-    this.postNoteToDatabase = this.postNoteToDatabase.bind(this);
-    this.doSomeFsThings = this.doSomeFsThings.bind(this);
+    this.saveNoteLocally = this.saveNoteLocally.bind(this);
   }
 
-  postNoteToDatabase() {
-    this.props.submitNote(this.props.note);
-  }
-
-  doSomeFsThings() {
-    // fs.writeFile('Users/zgolding/Downloads/something.txt', function(err) {
-    //   console.log("error with fs:", err);
-    // });
+  saveNoteLocally() {
+    this.props.saveNote(this.props.note);
   }
 
   render() {
     return (
       <div className={styles.ToolBar}>
-        <button onClick={ this.postNoteToDatabase }>Submit</button>
-        <button onClick={ this.doSomeFsThings }></button>
+        <button onClick={ this.saveNoteLocally }>Submit Note</button>
       </div>
     )
   }
@@ -45,6 +34,6 @@ export default connect(
     note: current
   }),
   {
-    submitNote
+    saveNote
   }
 )(ToolBar);

@@ -5,6 +5,7 @@ module.exports = {
   devtool: "eval",
   entry: [
     'webpack-hot-middleware/client?path=http://localhost:8080/__webpack_hmr',
+    'react-hot-loader/patch',
     path.join(__dirname, 'client/index.tsx')
   ],
   output: {
@@ -41,6 +42,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ]
 };

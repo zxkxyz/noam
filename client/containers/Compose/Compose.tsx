@@ -24,12 +24,12 @@ class Compose extends React.Component<ComposeProps, {}> {
 
   handleTitle({ target }) {
     this.props.updateCurrentNoteTitle(target.value);
-    console.log("Title:", target.value);
+    // console.log("Title:", target.value);
   }
 
   handleBody(editorState) {
     this.props.updateCurrentNoteBody(editorState);
-    console.log("Body State:", editorState);
+    // console.log("Body State:", editorState);
   }
 
   render() {

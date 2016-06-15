@@ -21,7 +21,10 @@ export default function configureStore(initialState: any): any{
     rootReducer,
     initialState,
     compose(
-      applyMiddleware(promise, logger),
+      applyMiddleware(
+        promise
+        // logger
+      ),
       DevTools.instrument()
     )
   );
