@@ -23,7 +23,7 @@ class NoteList extends React.Component<NoteListProps, {}> {
         noteDetails.push(<NoteDetail title={item.title} body={item.body.blocks[0].text} timestamp={item.timestamp} />)
       }
     }
-    return noteDetails;
+    return noteDetails.sort((a, b) => a.props.timestamp < b.props.timestamp ? 1 : -1);
   }
 
   render() {
