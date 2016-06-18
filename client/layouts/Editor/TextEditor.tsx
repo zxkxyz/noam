@@ -35,7 +35,7 @@ export default class TextEditor extends React.Component<TextEditorProps, TextEdi
 
   onChangeTitle(titleEvent) {
     this.setState({ title: titleEvent.target.value } as TextEditorState);
-    this.props.updateTitle(titleEvent);
+    this.props.updateTitle(titleEvent.target.value);
   }
 
   handleKeyCommand(command) {

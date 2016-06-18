@@ -1,15 +1,21 @@
-import { SUBMIT_NOTE } from '../constants/ActionTypes.ts';
+import { SAVE_NOTE, INITIALIZE_DB_STORE } from '../constants/ActionTypes.ts';
 
-const initialState = {
-  text: "Default state"
-};
+const initialState = { notes: {} };
 
 export default function notes(state: any = initialState, action: any): any {
   switch (action.type) {
-    case SUBMIT_NOTE:
+    case SAVE_NOTE:
       return Object.assign({}, state, {
-        newest: Object.assign({}, action.payload.data.note)
+        notes: Object.assign({}, state.notes, {
+          [action.payload.filename]: {
+            title: action.payload.title,
+            body: action.payload.body,
+            timestamp: action.payload.timestamp
+          }
+        })
       });
+    case INITIALIZE_DB_STORE:
+      return Object.assign({}, state, action.payload);
     default:
       return state;
   }

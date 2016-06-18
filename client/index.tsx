@@ -6,7 +6,9 @@ import { Provider } from 'react-redux';
 import App from './containers/App/App.tsx';
 const { AppContainer } = require('react-hot-loader');
 
-const store = configureStore({});
+export const store = configureStore({});
+
+require('./config/initialize.ts');
 
 render(
   <AppContainer>

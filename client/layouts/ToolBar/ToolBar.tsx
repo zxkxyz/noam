@@ -1,12 +1,10 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { saveNote } from "../../filesystem/saveNote.ts";
 
 const styles = require('./ToolBar.css');
 
 export interface ToolBarProps {
-  saveNote: (any) => any,
-  note: any
+  saveNoteToFS: () => any
 };
 
 class ToolBar extends React.Component<ToolBarProps, {}> {
@@ -17,23 +15,16 @@ class ToolBar extends React.Component<ToolBarProps, {}> {
   }
 
   saveNoteLocally() {
-    this.props.saveNote(this.props.note);
+    this.props.saveNoteToFS();
   }
 
   render() {
     return (
       <div className={styles.ToolBar}>
-        <button onClick={ this.saveNoteLocally }>Submit Note</button>
+        <button onClick={ this.saveNoteLocally }>Save</button>
       </div>
     )
   }
 }
 
-export default connect(
-  ({ current }) => ({
-    note: current
-  }),
-  {
-    saveNote
-  }
-)(ToolBar);
+export default ToolBar;
