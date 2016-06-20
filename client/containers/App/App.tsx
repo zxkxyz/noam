@@ -17,7 +17,6 @@ export default class App extends React.Component<{}, {}> {
           <NoteList />
           <Compose />
         </SplitPane>
-        <DevTools />
       </div>
     );
   }

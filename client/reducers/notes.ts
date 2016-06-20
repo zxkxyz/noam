@@ -10,7 +10,8 @@ export default function notes(state: any = initialState, action: any): any {
           [action.payload.filename]: {
             title: action.payload.title,
             body: action.payload.body,
-            timestamp: action.payload.timestamp
+            timestamp: action.payload.timestamp,
+            filename: action.payload.filename
           }
         })
       });

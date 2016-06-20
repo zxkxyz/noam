@@ -22,6 +22,7 @@ render(
 if((module as any).hot) {
   (module as any).hot.accept('./containers/App/App.tsx', () => {
     const NextApp = require('./containers/App/App.tsx').default;
+    require('./config/initialize.ts');
     render(
       <AppContainer>
         <Provider store={store}>

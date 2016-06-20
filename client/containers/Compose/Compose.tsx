@@ -23,34 +23,29 @@ export interface ComposeProps {
   body: EditorState,
   updateCurrentNoteTitle: (any) => any,
   updateCurrentNoteBody: (any) => any,
-  saveNoteAction: (string, any) => any
+  saveNoteAction: (string, any, name) => any
 }
 
 class Compose extends React.Component<ComposeProps, {}> {
   constructor(props) {
     super(props);
 
-    // Debounce the redux functions otherwise dispatch gets clogged up
-    this.handleTitle = debounce(this.handleTitle.bind(this), 300);
-    this.handleBody = debounce(this.handleBody.bind(this), 300);
+    this.handleTitle = this.handleTitle.bind(this);
+    this.handleBody = this.handleBody.bind(this);
     this.saveNoteToFS = this.saveNoteToFS.bind(this);
   }
 
   handleTitle(title) {
     this.props.updateCurrentNoteTitle(title);
-    // Debugging: Log the title as its updated
-    // console.log("Title:", title);
   }
 
   handleBody(editorState) {
     this.props.updateCurrentNoteBody(editorState);
-    // Debugging: Log the body as its updated
-    // console.log("Body State:", editorState);
   }
 
   saveNoteToFS() {
     var serializedNote = noteToRaw(this.props.body);
-    this.props.saveNoteAction(this.props.title, serializedNote);
+    this.props.saveNoteAction(this.props.title, serializedNote, this.props.filename);
   }
 
   render() {
@@ -58,7 +53,9 @@ class Compose extends React.Component<ComposeProps, {}> {
       <div className={styles.Compose}>
         <TextEditor
           updateTitle={ this.handleTitle }
-          updateBody={ this.handleBody } />
+          updateBody={ this.handleBody }
+          title={ this.props.title }
+          body={ this.props.body } />
         <ToolBar
           saveNoteToFS={this.saveNoteToFS} />
       </div>
@@ -70,7 +67,8 @@ export default connect(
   // Map state to props
   ({ current }) => ({
     title: current.title,
-    body: current.body
+    body: current.body,
+    filename: current.filename
   }),
   // Map dispatch actions to props
   {

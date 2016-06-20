@@ -1,4 +1,4 @@
-import { convertToRaw } from 'draft-js';
+import { EditorState, convertToRaw, convertFromRaw } from 'draft-js';
 
 export function noteToRaw(editorState) {
   // console.log("editorState", editorState);
@@ -9,6 +9,9 @@ export function noteToRaw(editorState) {
   return rawState;
 }
 
-export function rawToNote(jsObject) {
-  return "hello";
+export function rawToNote(raw) {
+  const contentState = convertFromRaw(raw);
+  console.log(contentState);
+  const editorState = EditorState.createWithContent(contentState as any);
+  return editorState;
 }

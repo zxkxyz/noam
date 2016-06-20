@@ -14,7 +14,7 @@ export function generateFilename() {
 export function saveNote({ filename, title, body, timestamp }) {
   getNoteDatabase()
   .then((db) => {
-    db.notes[filename] = { title, body, timestamp };
+    db.notes[filename] = { title, body, timestamp, filename };
     return saveNoteDatabase(db);
   })
   .then(() => {

@@ -8,4 +8,7 @@
 
 .body {
   color: #D3D3D3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
