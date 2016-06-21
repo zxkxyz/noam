@@ -21,6 +21,7 @@ const styles = require("./Compose.css");
 export interface ComposeProps {
   title: string,
   body: EditorState,
+  filename: string,
   updateCurrentNoteTitle: (any) => any,
   updateCurrentNoteBody: (any) => any,
   saveNoteAction: (string, any, name) => any

@@ -5,7 +5,7 @@
   "homepage": "https://github.com/zakarhino/noam",
   "main": "index.js",
   "scripts": {
-    "start": "electron index.js",
+    "start": "electron public/index.js",
     "build": "webpack -p --progress",
     "start:hot": "cross-env HOT=1 NODE_ENV=development electron index.js",
     "dev": "node -r babel-register devServer.js",
