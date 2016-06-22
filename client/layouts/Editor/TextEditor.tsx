@@ -7,21 +7,13 @@ const styles = require('./TextEditor.css');
 export interface TextEditorProps {
   updateBody: (any) => any,
   updateTitle: (any) => any,
+  title: string,
+  body: EditorState
 };
 
-export interface TextEditorState {
-  editorState: EditorState,
-  title: string
-};
-
-export default class TextEditor extends React.Component<TextEditorProps, TextEditorState> {
+export default class TextEditor extends React.Component<TextEditorProps, {}> {
   constructor(props) {
     super(props);
-
-    this.state = {
-      editorState: EditorState.createEmpty(),
-      title: ''
-    };
 
     this.onChangeEditor = this.onChangeEditor.bind(this);
     this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -29,17 +21,15 @@ export default class TextEditor extends React.Component<TextEditorProps, TextEdi
   }
 
   onChangeEditor(editorState) {
-    this.setState({ editorState } as TextEditorState);
     this.props.updateBody(editorState)
   }
 
   onChangeTitle(titleEvent) {
-    this.setState({ title: titleEvent.target.value } as TextEditorState);
-    this.props.updateTitle(titleEvent);
+    this.props.updateTitle(titleEvent.target.value);
   }
 
   handleKeyCommand(command) {
-    const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
+    const newState = RichUtils.handleKeyCommand(this.props.body, command);
     if(newState) {
       this.onChangeEditor(newState);
       return true;
@@ -48,7 +38,7 @@ export default class TextEditor extends React.Component<TextEditorProps, TextEdi
   }
 
   render() {
-    let { editorState, title } = this.state;
+    let { body, title } = this.props;
     return (
       <div className={styles.editorWrapper}>
         <div className={styles.inputWrapper}>
@@ -62,7 +52,7 @@ export default class TextEditor extends React.Component<TextEditorProps, TextEdi
         <br />
         <div className={styles.textEditor}>
           <Editor
-            editorState={editorState}
+            editorState={body}
             handleKeyCommand={this.handleKeyCommand}
             onChange={this.onChangeEditor}>
           </Editor>

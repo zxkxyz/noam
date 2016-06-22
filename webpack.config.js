@@ -1,19 +1,18 @@
 var webpack = require('webpack');
 var path = require('path');
+var webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
 
-module.exports = {
+var config = {
   devtool: "eval",
   entry: [
     'webpack-hot-middleware/client?path=http://localhost:8080/__webpack_hmr',
+    'react-hot-loader/patch',
     path.join(__dirname, 'client/index.tsx')
   ],
   output: {
     path: path.join(__dirname, 'public'),
     filename: "bundle.js",
     publicPath: 'http://localhost:8080/public'
-  },
-  externals: {
-    "remote": "remote"
   },
   module: {
     preloaders: [
@@ -41,6 +40,11 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
 };
+
+config.target = webpackTargetElectronRenderer(config);
+
+module.exports = config;

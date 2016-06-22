@@ -4,7 +4,7 @@ const promise = require('redux-promise');
 import rootReducer from '../reducers/index.ts';
 import DevTools from '../containers/DevTools.tsx';
 
-export default function configureStore(initialState: any): any{
+export default function configureStore(initialState: any): any {
 
   // Create redux logger
   const logger = createLogger({
@@ -21,7 +21,10 @@ export default function configureStore(initialState: any): any{
     rootReducer,
     initialState,
     compose(
-      applyMiddleware(promise, logger),
+      applyMiddleware(
+        promise
+        // logger
+      ),
       DevTools.instrument()
     )
   );

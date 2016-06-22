@@ -5,6 +5,7 @@
     "axios": "registry:dt/axios#0.9.1+20160317120654",
     "core-js": "registry:dt/core-js#0.0.0+20160602141332",
     "draft-js": "registry:dt/draft-js#0.2.2+20160316171810",
+    "lodash": "registry:dt/lodash#3.10.0+20160330154726",
     "node": "registry:dt/node#6.0.0+20160602155235",
     "react": "registry:dt/react#0.14.0+20160602151522",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
