@@ -39,3 +39,4 @@ public/bundle.js
 .vscode
 .DS_Store
 typings
+built
