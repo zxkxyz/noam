@@ -40,3 +40,5 @@ public/bundle.js
 .DS_Store
 typings
 built
+
+public/package.json
