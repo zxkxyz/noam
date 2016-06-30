@@ -21,3 +21,6 @@ export default class App extends React.Component<{}, {}> {
     );
   }
 }
+
+// Add this under the SplitPane component if you want redux dev tools
+// <DevTools />

@@ -1,7 +1,7 @@
 // Dependencies:
 import * as React from "react";
 import { connect } from "react-redux";
-import { EditorState } from 'draft-js';
+import { EditorState, RichUtils } from 'draft-js';
 import { debounce } from 'lodash';
 
 // Layouts:
@@ -14,6 +14,9 @@ import { saveNoteAction } from "../../actions/current.ts";
 
 // Serializing and Saving functions:
 import { noteToRaw } from "../../filesystem/serialize.ts";
+
+// Constants
+import * as PossibleStyles from '../../constants/PossibleStyles.ts';
 
 // Styles:
 const styles = require("./Compose.css");
@@ -34,19 +37,43 @@ class Compose extends React.Component<ComposeProps, {}> {
     this.handleTitle = this.handleTitle.bind(this);
     this.handleBody = this.handleBody.bind(this);
     this.saveNoteToFS = this.saveNoteToFS.bind(this);
+    this.addStyle = this.addStyle.bind(this);
+    this.onBoldClick = this.onBoldClick.bind(this);
+    this.onItalicClick = this.onItalicClick.bind(this);
+    this.onUnderlineClick = this.onUnderlineClick.bind(this);
   }
 
   handleTitle(title) {
     this.props.updateCurrentNoteTitle(title);
+    this.saveNoteToFS();
   }
 
   handleBody(editorState) {
     this.props.updateCurrentNoteBody(editorState);
+    this.saveNoteToFS();
   }
 
   saveNoteToFS() {
     var serializedNote = noteToRaw(this.props.body);
     this.props.saveNoteAction(this.props.title, serializedNote, this.props.filename);
+  }
+
+  addStyle(name) {
+    if(Object.keys(PossibleStyles).includes(name)) {
+      this.props.updateCurrentNoteBody((RichUtils as any).toggleInlineStyle(this.props.body, name));
+    }
+  }
+
+  onBoldClick() {
+    this.addStyle("BOLD");
+  }
+
+  onItalicClick() {
+    this.addStyle("ITALIC");
+  }
+
+  onUnderlineClick() {
+    this.addStyle("UNDERLINE");
   }
 
   render() {
@@ -58,7 +85,9 @@ class Compose extends React.Component<ComposeProps, {}> {
           title={ this.props.title }
           body={ this.props.body } />
         <ToolBar
-          saveNoteToFS={this.saveNoteToFS} />
+          onBoldClick={this.onBoldClick}
+          onItalicClick={this.onItalicClick}
+          onUnderlineClick={this.onUnderlineClick} />
       </div>
     );
   }

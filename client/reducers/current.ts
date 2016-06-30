@@ -1,4 +1,4 @@
-import { LOAD_NOTE, UPDATE_CURRENT_TITLE, UPDATE_CURRENT_BODY, UPDATE_CURRENT_FILENAME } from '../constants/ActionTypes.ts';
+import { SAVE_NOTE, LOAD_NOTE, UPDATE_CURRENT_TITLE, UPDATE_CURRENT_BODY, UPDATE_CURRENT_FILENAME } from '../constants/ActionTypes.ts';
 import { EditorState } from 'draft-js';
 
 const initialState = {
@@ -25,6 +25,10 @@ export default function current(state = initialState, action) {
       return Object.assign({}, state, {
         title: action.payload.title,
         body: action.payload.body,
+        filename: action.payload.filename
+      });
+    case SAVE_NOTE:
+      return Object.assign({}, state, {
         filename: action.payload.filename
       });
     default:

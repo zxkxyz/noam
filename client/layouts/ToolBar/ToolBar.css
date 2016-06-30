@@ -2,3 +2,15 @@
   position: fixed;
   bottom: 0;
 }
+
+.BoldButton {
+  font-weight: bold;
+}
+
+.ItalicButton {
+  font-style: italic;
+}
+
+.UnderlineButton {
+  text-decoration: underline;
+}
