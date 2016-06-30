@@ -6,8 +6,9 @@
   "main": "index.js",
   "scripts": {
     "start": "electron public/index.js",
-    "build": "webpack -p --progress",
     "start:hot": "cross-env HOT=1 NODE_ENV=development electron public/index.js",
+    "start:hot:devtools": "cross-env HOT=1 NODE_ENV=development DEV_TOOLS=1 electron public/index.js",
+    "build": "webpack -p --progress",
     "dev": "node -r babel-register devServer.js",
     "test": "xo --fix",
     "package": "cp package.json public; electron-packager ./public noam --platform=darwin --arch=x64 --out=./built --version=1.2.2 --overwrite"

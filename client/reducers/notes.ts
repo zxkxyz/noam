@@ -1,6 +1,6 @@
-import { SAVE_NOTE, INITIALIZE_DB_STORE } from '../constants/ActionTypes.ts';
+import { SAVE_NOTE, INITIALIZE_DB_STORE, UPDATE_FILTER } from '../constants/ActionTypes.ts';
 
-const initialState = { notes: {} };
+const initialState = { notes: {}, filter: '' };
 
 export default function notes(state: any = initialState, action: any): any {
   switch (action.type) {
@@ -17,6 +17,10 @@ export default function notes(state: any = initialState, action: any): any {
       });
     case INITIALIZE_DB_STORE:
       return Object.assign({}, state, action.payload);
+    case UPDATE_FILTER:
+      return Object.assign({}, state, {
+        filter: action.filter
+      });
     default:
       return state;
   }

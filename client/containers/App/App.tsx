@@ -7,6 +7,8 @@ import DevTools from '../DevTools.tsx';
 
 const styles = require('./App.css');
 
+console.log("process", process.env.DEV_TOOLS);
+
 export default class App extends React.Component<{}, {}> {
   render() {
     return (
@@ -17,6 +19,7 @@ export default class App extends React.Component<{}, {}> {
           <NoteList />
           <Compose />
         </SplitPane>
+        {process.env.DEV_TOOLS ? <DevTools /> : null}
       </div>
     );
   }

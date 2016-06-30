@@ -18,7 +18,7 @@ export function saveNote({ filename, title, body, timestamp }) {
     return saveNoteDatabase(db);
   })
   .then(() => {
-    console.log("Updated note database!");
+    // console.log("Updated note database!");
   });
 }
 
@@ -62,7 +62,6 @@ export function verifyAppFolder() {
 }
 
 export function saveNoteDatabase(newData) {
-  console.log("newdata", newData);
   return new Promise((resolve, reject) => {
     fs.outputJson(dirHelper("notes.noam"), newData, function(err) {
       if (err) reject(err);
