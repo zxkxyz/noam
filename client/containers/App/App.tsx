@@ -7,8 +7,6 @@ import DevTools from '../DevTools.tsx';
 
 const styles = require('./App.css');
 
-console.log("process", process.env.DEV_TOOLS);
-
 export default class App extends React.Component<{}, {}> {
   render() {
     return (

@@ -11,7 +11,7 @@ export interface NoteListProps {
   notes: any,
   filter: string,
   loadNote: (any) => void,
-  updateFilter: (string) => void
+  updateFilter: (strinidkg) => void
 }
 
 class NoteList extends React.Component<NoteListProps, {}> {

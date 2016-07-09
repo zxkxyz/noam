@@ -11,7 +11,6 @@ export function noteToRaw(editorState) {
 
 export function rawToNote(raw) {
   const contentState = convertFromRaw(raw);
-  console.log(contentState);
   const editorState = EditorState.createWithContent(contentState as any);
   return editorState;
 }

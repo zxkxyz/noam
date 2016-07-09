@@ -7,6 +7,19 @@ export interface SearchBarProps {
 class SearchBar extends React.Component<SearchBarProps, {}> {
   constructor(props) {
     super(props);
+
+    this.onSearchChange = this.onSearchChange.bind(this);
+    this.onKeyPress = this.onKeyPress.bind(this);
+  }
+
+  onSearchChange(e) {
+    this.props.searchNotes(e);
+  }
+
+  onKeyPress(e) {
+    if(e.keyCode === 13) {
+
+    }
   }
 
   render() {
@@ -14,7 +27,8 @@ class SearchBar extends React.Component<SearchBarProps, {}> {
       <div>
         <input
           placeholder="Search notes..."
-          onChange={this.props.searchNotes}/>
+          onChange={this.onSearchChange}
+          onKeyPress={this.onKeyPress} />
       </div>
     )
   }

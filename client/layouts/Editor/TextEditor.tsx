@@ -18,6 +18,16 @@ export default class TextEditor extends React.Component<TextEditorProps, {}> {
     this.onChangeEditor = this.onChangeEditor.bind(this);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
+    this.focus = this.focus.bind(this);
+  }
+
+  refs: {
+    [string: string]: any;
+    editor: any;
+  }
+
+  focus() {
+    this.refs.editor.focus();
   }
 
   onChangeEditor(editorState) {
@@ -50,12 +60,12 @@ export default class TextEditor extends React.Component<TextEditorProps, {}> {
             placeholder="My Note" />
         </div>
         <br />
-        <div className={styles.textEditor}>
+        <div className={styles.textEditor} onClick={this.focus}>
           <Editor
             editorState={body}
             handleKeyCommand={this.handleKeyCommand}
-            onChange={this.onChangeEditor}>
-          </Editor>
+            onChange={this.onChangeEditor}
+            ref="editor" />
         </div>
       </div>
     );
