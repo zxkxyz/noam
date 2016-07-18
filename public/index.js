@@ -14,7 +14,12 @@ function createWindow() {
   // Create the browser window.
       // BrowserWindow.addDevToolsExtension('~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.14.11_1');
 
-  mainWindow = new BrowserWindow({ width: 900, height: 1000 });
+  mainWindow = new BrowserWindow({
+    width: 900,
+    height: 1000,
+    minHeight: 200,
+    minWidth: 300
+  });
 
   // and load the index.html of the app.
   	mainWindow.loadURL('file://' + __dirname + '/index.html');
